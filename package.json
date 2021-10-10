@@ -21,8 +21,11 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
+    "@types/luxon": "^2.0.5",
     "discord.js": "^13.2.0",
     "discordx": "^6.1.2",
+    "luxon": "^2.0.2",
+    "node-cron": "^3.0.0",
     "path": "^0.12.7",
     "reflect-metadata": "^0.1.13"
   }

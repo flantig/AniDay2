@@ -36,10 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var cron = require('node-cron');
 var discordToken = require('../config.json').discordToken;
 require("reflect-metadata");
 var discord_js_1 = require("discord.js");
 var discordx_1 = require("discordx");
+var monfun = require("../helpers/mongo");
 var client = new discordx_1.Client({
     prefix: "!",
     intents: [
@@ -67,6 +69,13 @@ client.once('ready', function () { return __awaiter(void 0, void 0, void 0, func
             case 2:
                 _a.sent();
                 console.log("" + __dirname);
+                // cron.schedule('00 01 * * *', async function () {
+                //     let day = DateTime.local();
+                //     const newDay = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
+                //         month: 'short',
+                //         day: '2-digit'
+                //     })));
+                // });
                 console.log('Ready!');
                 return [2 /*return*/];
         }
