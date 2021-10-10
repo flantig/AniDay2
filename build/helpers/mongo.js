@@ -36,56 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var cron = require('node-cron');
-var discordToken = require('../config.json').discordToken;
-require("reflect-metadata");
-var discord_js_1 = require("discord.js");
-var discordx_1 = require("discordx");
-var monfun = require("./helpers/mongo.ts");
-var client = new discordx_1.Client({
-    prefix: "!",
-    intents: [
-        discord_js_1.Intents.FLAGS.GUILDS,
-        discord_js_1.Intents.FLAGS.GUILD_MESSAGES,
-        discord_js_1.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-        discord_js_1.Intents.FLAGS.GUILD_VOICE_STATES,
-    ],
-    classes: [
-        __dirname + "\\commands\\*.{js,ts}",
-    ],
-    botGuilds: [function (client) { return client.guilds.cache.map(function (guild) { return guild.id; }); }],
-    silent: true,
-});
-client.once('ready', function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, client.initApplicationCommands({
-                    guild: { log: true },
-                    global: { log: true },
-                })];
-            case 1:
-                _a.sent();
-                return [4 /*yield*/, client.initApplicationPermissions()];
-            case 2:
-                _a.sent();
-                console.log("" + __dirname);
-                // cron.schedule('00 01 * * *', async function () {
-                //     let day = DateTime.local();
-                //     const newDay = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
-                //         month: 'short',
-                //         day: '2-digit'
-                //     })));
-                // });
-                console.log('Ready!');
-                return [2 /*return*/];
-        }
-    });
-}); });
-client.on("interactionCreate", function (interaction) {
-    client.executeInteraction(interaction);
-});
-client.on("messageCreate", function (message) {
-    client.executeCommand(message);
-});
-client.login(discordToken);
-//# sourceMappingURL=Main.js.map
+var AWS = require('aws-sdk');
+var axios = require('axios');
+var config = require('../../config.json');
+var DateTime = require("luxon").DateTime;
+var MongoClient = require('mongodb').MongoClient;
+var uri = "mongodb+srv://" + config.mongoUSR + ":" + config.mongoPW + "@" + config.mongoCOL + ".pk6r8.mongodb.net/" + config.mongoDB + "?retryWrites=true&w=majority";
+var mongoClient = new MongoClient(uri);
+module.exports = {
+    getImageSet: function (day) { return __awaiter(void 0, void 0, void 0, function () {
+        var dayImgs;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, mongoClient.connect()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, mongoClient.db("aniDayStorage").collection("aniDayHybrid").find({ "day": day }).toArray()];
+                case 2:
+                    dayImgs = _a.sent();
+                    return [4 /*yield*/, mongoClient.close()];
+                case 3:
+                    _a.sent();
+                    return [2 /*return*/, dayImgs];
+            }
+        });
+    }); },
+};
+//# sourceMappingURL=mongo.js.map

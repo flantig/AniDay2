@@ -5,7 +5,7 @@ import "reflect-metadata";
 import { Intents, Interaction, Message } from "discord.js";
 import { Client } from "discordx";
 import EmbeddedDaily from "./helpers/daily";
-const monfun = require("../helpers/mongo");
+const monfun = require("./helpers/mongo.ts");
 
 const client = new Client({
     prefix: "!",
