@@ -28,15 +28,16 @@ async function guildDailyRunner() {
         month: 'short',
         day: '2-digit'
     })));
-
     let dailyGuildArray = await monfun.dailyMongoSender();
-    const today = new EmbeddedDaily(day, await monfun.getImageSet(newDay));
 
     for (const element of dailyGuildArray) {
-        const channel = client.channels.cache.get(element.channelID) as TextChannel;
+        const guild = await client.guilds.fetch(element.guildID);
+        const channel = await guild.channels.cache.get(element.channelID) as TextChannel;
 
         if (channel != undefined)
-            await channel.send({embeds: today.returnRandomDay()});
+            {
+                await channel.send({embeds: await newDay.returnRandomDay()});
+            }
     }
 }
 

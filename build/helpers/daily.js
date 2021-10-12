@@ -57,14 +57,22 @@ var EmbeddedDaily = /** @class */ (function () {
         return msgObj;
     };
     EmbeddedDaily.prototype.returnRandomDay = function () {
-        (this.mongoMultipleDays != undefined) ?
-            console.log(Math.round(Math.random() * (this.mongoMultipleDays.length - 1)))
-            :
-                console.log("Undefined@@@@@@@@@");
-        return (this.mongoMultipleDays != undefined) ?
-            this.getMessageObject(this.mongoMultipleDays[Math.round(Math.random() * (this.mongoMultipleDays.length - 1))])
-            :
-                undefined;
+        return __awaiter(this, void 0, void 0, function () {
+            var everyDay, randomPick;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.returnEveryDay()];
+                    case 1:
+                        everyDay = _a.sent();
+                        randomPick = [];
+                        randomPick.push(everyDay.short[Math.floor(Math.random() * (everyDay.short.length))]);
+                        return [2 /*return*/, (this.mongoMultipleDays != undefined) ?
+                                randomPick
+                                :
+                                    undefined];
+                }
+            });
+        });
     };
     EmbeddedDaily.prototype.returnEveryDay = function () {
         return __awaiter(this, void 0, void 0, function () {

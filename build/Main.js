@@ -60,9 +60,10 @@ var client = new discordx_1.Client({
 });
 function guildDailyRunner() {
     return __awaiter(this, void 0, void 0, function () {
-        var day, newDay, _a, _b, dailyGuildArray, today, _c, _d, _i, dailyGuildArray_1, element, channel;
-        return __generator(this, function (_e) {
-            switch (_e.label) {
+        var day, newDay, _a, _b, dailyGuildArray, _i, dailyGuildArray_1, element, guild, channel, _c, _d;
+        var _e;
+        return __generator(this, function (_f) {
+            switch (_f.label) {
                 case 0:
                     day = luxon_1.DateTime.local();
                     _a = daily_1.default.bind;
@@ -72,30 +73,33 @@ function guildDailyRunner() {
                             day: '2-digit'
                         }))];
                 case 1:
-                    newDay = new (_a.apply(daily_1.default, _b.concat([_e.sent()])))();
+                    newDay = new (_a.apply(daily_1.default, _b.concat([_f.sent()])))();
                     return [4 /*yield*/, monfun.dailyMongoSender()];
                 case 2:
-                    dailyGuildArray = _e.sent();
-                    _c = daily_1.default.bind;
-                    _d = [void 0, day];
-                    return [4 /*yield*/, monfun.getImageSet(newDay)];
-                case 3:
-                    today = new (_c.apply(daily_1.default, _d.concat([_e.sent()])))();
+                    dailyGuildArray = _f.sent();
                     _i = 0, dailyGuildArray_1 = dailyGuildArray;
-                    _e.label = 4;
-                case 4:
-                    if (!(_i < dailyGuildArray_1.length)) return [3 /*break*/, 7];
+                    _f.label = 3;
+                case 3:
+                    if (!(_i < dailyGuildArray_1.length)) return [3 /*break*/, 9];
                     element = dailyGuildArray_1[_i];
-                    channel = client.channels.cache.get(element.channelID);
-                    if (!(channel != undefined)) return [3 /*break*/, 6];
-                    return [4 /*yield*/, channel.send({ embeds: today.returnRandomDay() })];
+                    return [4 /*yield*/, client.guilds.fetch(element.guildID)];
+                case 4:
+                    guild = _f.sent();
+                    return [4 /*yield*/, guild.channels.cache.get(element.channelID)];
                 case 5:
-                    _e.sent();
-                    _e.label = 6;
-                case 6:
+                    channel = _f.sent();
+                    if (!(channel != undefined)) return [3 /*break*/, 8];
+                    _d = (_c = channel).send;
+                    _e = {};
+                    return [4 /*yield*/, newDay.returnRandomDay()];
+                case 6: return [4 /*yield*/, _d.apply(_c, [(_e.embeds = _f.sent(), _e)])];
+                case 7:
+                    _f.sent();
+                    _f.label = 8;
+                case 8:
                     _i++;
-                    return [3 /*break*/, 4];
-                case 7: return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 9: return [2 /*return*/];
             }
         });
     });

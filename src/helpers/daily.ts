@@ -30,15 +30,14 @@ export default class EmbeddedDaily {
         return msgObj;
     }
 
-    returnRandomDay() {
-        (this.mongoMultipleDays != undefined) ?
-            console.log(Math.round(Math.random() * (this.mongoMultipleDays.length - 1)))
-            :
-            console.log("Undefined@@@@@@@@@");
+    async returnRandomDay() {
 
+        const everyDay = await this.returnEveryDay();
+        let randomPick: MessageEmbed[] = [];
+        randomPick.push(everyDay.short[Math.floor(Math.random() * (everyDay.short.length))])
 
         return (this.mongoMultipleDays != undefined) ?
-            this.getMessageObject(this.mongoMultipleDays[Math.round(Math.random() * (this.mongoMultipleDays.length - 1))])
+            randomPick
             :
             undefined;
     }

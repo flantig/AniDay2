@@ -7,6 +7,6 @@ export default class EmbeddedDaily {
     day: DateTime;
     constructor(day: DateTime, mongoMultipleDays?: AniDayHybrid[]);
     getMessageObject(mongoDay: AniDayHybrid): MessageEmbed[];
-    returnRandomDay(): MessageEmbed[] | undefined;
+    returnRandomDay(): Promise<MessageEmbed[] | undefined>;
     returnEveryDay(): Promise<AllDayEmbeddeds>;
 }
