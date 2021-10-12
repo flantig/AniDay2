@@ -54,24 +54,12 @@ function buttonState(interaction) {
         :
             buttons.nextBtn.interaction(interaction, this.full, new discord_js_1.MessageActionRow().addComponents(buttons.lessBtn.button, (this.counter != 0) ? buttons.backBtn.button : buttons.begBtn.button, (this.counter < this.shortFull.short.length - 1) ? buttons.nextBtn.button : buttons.endBtn.button));
 }
-var slashCommands = /** @class */ (function () {
-    function slashCommands() {
+var slashDaily = /** @class */ (function () {
+    function slashDaily() {
         this.expandedState = 0;
         this.counter = 0;
     }
-    slashCommands.prototype.hello = function (interaction) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, interaction.reply("Yo, what's up!")];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    slashCommands.prototype.daily = function (interaction) {
+    slashDaily.prototype.daily = function (interaction) {
         return __awaiter(this, void 0, void 0, function () {
             var day, today, _a, _b, _c, short;
             return __generator(this, function (_d) {
@@ -79,7 +67,7 @@ var slashCommands = /** @class */ (function () {
                     case 0: return [4 /*yield*/, interaction.deferReply()];
                     case 1:
                         _d.sent();
-                        day = luxon_1.DateTime.local().plus({ days: -2 });
+                        day = luxon_1.DateTime.local();
                         _a = daily_1.default.bind;
                         _b = [void 0, day];
                         return [4 /*yield*/, monfun.getImageSet(day.toLocaleString({
@@ -112,15 +100,16 @@ var slashCommands = /** @class */ (function () {
             });
         });
     };
-    slashCommands.prototype.morebtn = function (interaction) {
+    // register a handler for the button with ID: "hello-btn"
+    slashDaily.prototype.morebtn = function (interaction) {
         this.expandedState = 1;
         buttons.moreBtn.interaction(interaction, this.full, new discord_js_1.MessageActionRow().addComponents(buttons.lessBtn.button, (this.counter != 0) ? buttons.backBtn.button : buttons.begBtn.button, (this.counter < this.shortFull.short.length - 1) ? buttons.nextBtn.button : buttons.endBtn.button));
     };
-    slashCommands.prototype.lessbtn = function (interaction) {
+    slashDaily.prototype.lessbtn = function (interaction) {
         this.expandedState = 0;
         buttons.moreBtn.interaction(interaction, this.short, new discord_js_1.MessageActionRow().addComponents(buttons.moreBtn.button, (this.counter != 0) ? buttons.backBtn.button : buttons.begBtn.button, (this.counter < this.shortFull.short.length - 1) ? buttons.nextBtn.button : buttons.endBtn.button));
     };
-    slashCommands.prototype.nextbtn = function (interaction) {
+    slashDaily.prototype.nextbtn = function (interaction) {
         if (this.counter < this.short.length) {
             this.counter++;
             this.short = [this.shortFull.short[this.counter]];
@@ -129,7 +118,7 @@ var slashCommands = /** @class */ (function () {
             buttonState.call(this, interaction);
         }
     };
-    slashCommands.prototype.backbtn = function (interaction) {
+    slashDaily.prototype.backbtn = function (interaction) {
         if (this.counter > 0) {
             this.counter--;
             this.short = [this.shortFull.short[this.counter]];
@@ -138,42 +127,36 @@ var slashCommands = /** @class */ (function () {
             buttonState.call(this, interaction);
         }
     };
-    slashCommands.prototype.begbtn = function (interaction) {
+    slashDaily.prototype.begbtn = function (interaction) {
         buttons.begBtn.interaction(interaction);
     };
-    slashCommands.prototype.endbtn = function (interaction) {
+    slashDaily.prototype.endbtn = function (interaction) {
         buttons.endBtn.interaction(interaction);
     };
     __decorate([
-        (0, discordx_1.Slash)("hello")
-    ], slashCommands.prototype, "hello", null);
-    __decorate([
         (0, discordx_1.Slash)("daily")
-    ], slashCommands.prototype, "daily", null);
+    ], slashDaily.prototype, "daily", null);
     __decorate([
-        (0, discordx_1.Slash)("auto")
-        // register a handler for the button with ID: "hello-btn"
-        ,
         (0, discordx_1.ButtonComponent)("more-btn")
-    ], slashCommands.prototype, "morebtn", null);
+    ], slashDaily.prototype, "morebtn", null);
     __decorate([
         (0, discordx_1.ButtonComponent)("less-btn")
-    ], slashCommands.prototype, "lessbtn", null);
+    ], slashDaily.prototype, "lessbtn", null);
     __decorate([
         (0, discordx_1.ButtonComponent)("nxt-btn")
-    ], slashCommands.prototype, "nextbtn", null);
+    ], slashDaily.prototype, "nextbtn", null);
     __decorate([
         (0, discordx_1.ButtonComponent)("bck-btn")
-    ], slashCommands.prototype, "backbtn", null);
+    ], slashDaily.prototype, "backbtn", null);
     __decorate([
         (0, discordx_1.ButtonComponent)("beg-btn")
-    ], slashCommands.prototype, "begbtn", null);
+    ], slashDaily.prototype, "begbtn", null);
     __decorate([
         (0, discordx_1.ButtonComponent)("end-btn")
-    ], slashCommands.prototype, "endbtn", null);
-    slashCommands = __decorate([
+    ], slashDaily.prototype, "endbtn", null);
+    slashDaily = __decorate([
         (0, discordx_1.Discord)()
-    ], slashCommands);
-    return slashCommands;
+    ], slashDaily);
+    return slashDaily;
 }());
-//# sourceMappingURL=slashCommands.js.map
+//# sourceMappingURL=slashDaily.js.map

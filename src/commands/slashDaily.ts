@@ -2,12 +2,12 @@ import {
     ButtonComponent,
     Discord,
     Slash,
-    SlashChoice,
+    SlashChoice, SlashGroup,
     SlashOption
 } from "discordx";
 import {
     ButtonInteraction,
-    CommandInteraction,
+    CommandInteraction, Message,
     MessageActionRow,
     MessageButton,
     MessageEmbed,
@@ -27,22 +27,18 @@ function buttonState(interaction: ButtonInteraction) {
 }
 
 @Discord()
-class slashCommands {
+class slashDaily {
     public shortFull: any;
     public short: MessageEmbed[];
     public full: MessageEmbed[];
     public expandedState = 0;
     public counter = 0;
 
-    @Slash("hello")
-    async hello(interaction: CommandInteraction) {
-        await interaction.reply("Yo, what's up!");
-    }
 
     @Slash("daily")
     async daily(interaction: CommandInteraction) {
         await interaction.deferReply();
-        let day = DateTime.local().plus({ days: -2 });
+        let day = DateTime.local();
         const today = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
             month: 'short',
             day: '2-digit'
@@ -69,7 +65,7 @@ class slashCommands {
         }
     }
 
-    @Slash("auto")
+
 
     // register a handler for the button with ID: "hello-btn"
     @ButtonComponent("more-btn")

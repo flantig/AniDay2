@@ -61,5 +61,72 @@ module.exports = {
             }
         });
     }); },
+    sendMongoEntry: function (guildID, guildCurrentChannel) { return __awaiter(void 0, void 0, void 0, function () {
+        var result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, mongoClient.connect()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, mongoClient.db("aniDayStorage").collection("dailyImage").replaceOne({ "guildID": guildID }, {
+                            "guildID": guildID,
+                            "channelID": guildCurrentChannel
+                        }, { upsert: true })];
+                case 2:
+                    result = _a.sent();
+                    return [4 /*yield*/, mongoClient.close()];
+                case 3:
+                    _a.sent();
+                    return [2 /*return*/, result.guildID];
+            }
+        });
+    }); },
+    removeMongoEntry: function (guildID) { return __awaiter(void 0, void 0, void 0, function () {
+        var botFeedback, currentListLength;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, mongoClient.connect()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, mongoClient.db("aniDayStorage").collection("dailyImage").findOne({ "guildID": guildID })];
+                case 2:
+                    currentListLength = _a.sent();
+                    if (!(currentListLength != null)) return [3 /*break*/, 4];
+                    return [4 /*yield*/, mongoClient.db("aniDayStorage").collection("dailyImage").deleteOne({ "guildID": guildID })];
+                case 3:
+                    _a.sent();
+                    botFeedback = "We successfully removed AniDay posts!";
+                    return [3 /*break*/, 5];
+                case 4:
+                    botFeedback = "This server was never receiving AniDay posts...";
+                    _a.label = 5;
+                case 5: return [4 /*yield*/, mongoClient.close()];
+                case 6:
+                    _a.sent();
+                    return [2 /*return*/, botFeedback];
+            }
+        });
+    }); },
+    dailyMongoSender: function () { return __awaiter(void 0, void 0, void 0, function () {
+        var daily;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, mongoClient.connect()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, mongoClient.db("aniDayStorage").collection("dailyImage").find({}, {
+                            "guildID": 1,
+                            "channelID": 1,
+                            "_id": 0
+                        }).toArray()];
+                case 2:
+                    daily = _a.sent();
+                    return [4 /*yield*/, mongoClient.close()];
+                case 3:
+                    _a.sent();
+                    return [2 /*return*/, daily];
+            }
+        });
+    }); },
 };
 //# sourceMappingURL=mongo.js.map

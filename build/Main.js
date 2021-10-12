@@ -36,11 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var luxon_1 = require("luxon");
 var cron = require('node-cron');
 var discordToken = require('../config.json').discordToken;
 require("reflect-metadata");
 var discord_js_1 = require("discord.js");
 var discordx_1 = require("discordx");
+var daily_1 = require("./helpers/daily");
 var monfun = require("./helpers/mongo.ts");
 var client = new discordx_1.Client({
     prefix: "!",
@@ -56,6 +58,48 @@ var client = new discordx_1.Client({
     botGuilds: [function (client) { return client.guilds.cache.map(function (guild) { return guild.id; }); }],
     silent: true,
 });
+function guildDailyRunner() {
+    return __awaiter(this, void 0, void 0, function () {
+        var day, newDay, _a, _b, dailyGuildArray, today, _c, _d, _i, dailyGuildArray_1, element, channel;
+        return __generator(this, function (_e) {
+            switch (_e.label) {
+                case 0:
+                    day = luxon_1.DateTime.local();
+                    _a = daily_1.default.bind;
+                    _b = [void 0, day];
+                    return [4 /*yield*/, monfun.getImageSet(day.toLocaleString({
+                            month: 'short',
+                            day: '2-digit'
+                        }))];
+                case 1:
+                    newDay = new (_a.apply(daily_1.default, _b.concat([_e.sent()])))();
+                    return [4 /*yield*/, monfun.dailyMongoSender()];
+                case 2:
+                    dailyGuildArray = _e.sent();
+                    _c = daily_1.default.bind;
+                    _d = [void 0, day];
+                    return [4 /*yield*/, monfun.getImageSet(newDay)];
+                case 3:
+                    today = new (_c.apply(daily_1.default, _d.concat([_e.sent()])))();
+                    _i = 0, dailyGuildArray_1 = dailyGuildArray;
+                    _e.label = 4;
+                case 4:
+                    if (!(_i < dailyGuildArray_1.length)) return [3 /*break*/, 7];
+                    element = dailyGuildArray_1[_i];
+                    channel = client.channels.cache.get(element.channelID);
+                    if (!(channel != undefined)) return [3 /*break*/, 6];
+                    return [4 /*yield*/, channel.send({ embeds: today.returnRandomDay() })];
+                case 5:
+                    _e.sent();
+                    _e.label = 6;
+                case 6:
+                    _i++;
+                    return [3 /*break*/, 4];
+                case 7: return [2 /*return*/];
+            }
+        });
+    });
+}
 client.once('ready', function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -69,13 +113,18 @@ client.once('ready', function () { return __awaiter(void 0, void 0, void 0, func
             case 2:
                 _a.sent();
                 console.log("" + __dirname);
-                // cron.schedule('00 01 * * *', async function () {
-                //     let day = DateTime.local();
-                //     const newDay = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
-                //         month: 'short',
-                //         day: '2-digit'
-                //     })));
-                // });
+                cron.schedule('00 01 * * *', function () {
+                    return __awaiter(this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, guildDailyRunner()];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    });
+                });
                 console.log('Ready!');
                 return [2 /*return*/];
         }
