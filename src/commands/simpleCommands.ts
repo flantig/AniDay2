@@ -12,4 +12,9 @@ class simpleCommandExample {
         command.message.reply(`👋 ${command.message.member}`);
     }
 
+    @SimpleCommand("slashTest", { aliases: ["hi"] })
+    slashTest(command: SimpleCommandMessage) {
+
+    }
+
 }

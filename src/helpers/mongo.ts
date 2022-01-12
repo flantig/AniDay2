@@ -1,4 +1,5 @@
 import AniDayHybrid from "../models/aniDayHybrid";
+import {Client} from "discordx";
 const AWS = require('aws-sdk');
 const axios = require('axios');
 const config = require('../../config.json');
@@ -50,4 +51,5 @@ module.exports = {
         return daily;
 
     },
+
 }

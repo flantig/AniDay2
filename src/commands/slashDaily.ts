@@ -27,7 +27,7 @@ function buttonState(interaction: ButtonInteraction) {
 }
 
 @Discord()
-class slashDaily {
+export class slashDaily {
     public shortFull: any;
     public short: MessageEmbed[];
     public full: MessageEmbed[];

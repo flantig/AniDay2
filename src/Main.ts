@@ -5,7 +5,11 @@ import "reflect-metadata";
 import {Intents, Interaction, Message, TextChannel} from "discord.js";
 import { Client } from "discordx";
 import EmbeddedDaily from "./helpers/daily";
+import {slashDaily} from "./commands/slashDaily";
+import path = require("path");
 const monfun = require("./helpers/mongo.ts");
+
+class daily extends slashDaily{}
 
 const client = new Client({
     prefix: "!",
@@ -16,11 +20,13 @@ const client = new Client({
         Intents.FLAGS.GUILD_VOICE_STATES,
     ],
     classes: [
-        `${__dirname}\\commands\\*.{js,ts}`,
+        path.join(__dirname, "commands", "**/*.{ts,js}"),
+        //`${__dirname}\\commands\\*.{js,ts}`,
     ],
     botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
     silent: true,
 });
+
 
 async function guildDailyRunner() {
     let day = DateTime.local();
@@ -59,6 +65,7 @@ client.once('ready', async () => {
 
 client.on("interactionCreate", (interaction) => {
     client.executeInteraction(interaction);
+
 });
 
 client.on("messageCreate", (message: Message) => {

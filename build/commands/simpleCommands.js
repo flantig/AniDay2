@@ -13,9 +13,14 @@ var simpleCommandExample = /** @class */ (function () {
     simpleCommandExample.prototype.hello = function (command) {
         command.message.reply("\uD83D\uDC4B " + command.message.member);
     };
+    simpleCommandExample.prototype.slashTest = function (command) {
+    };
     __decorate([
         (0, discordx_1.SimpleCommand)("hello", { aliases: ["hi"] })
     ], simpleCommandExample.prototype, "hello", null);
+    __decorate([
+        (0, discordx_1.SimpleCommand)("slashTest", { aliases: ["hi"] })
+    ], simpleCommandExample.prototype, "slashTest", null);
     simpleCommandExample = __decorate([
         (0, discordx_1.Discord)()
     ], simpleCommandExample);

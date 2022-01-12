@@ -42,6 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.slashDaily = void 0;
 var discordx_1 = require("discordx");
 var discord_js_1 = require("discord.js");
 var luxon_1 = require("luxon");
@@ -159,4 +160,5 @@ var slashDaily = /** @class */ (function () {
     ], slashDaily);
     return slashDaily;
 }());
+exports.slashDaily = slashDaily;
 //# sourceMappingURL=slashDaily.js.map
