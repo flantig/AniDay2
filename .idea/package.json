@@ -1,0 +1,29 @@
+{
+  "name": "anidaysequel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/Main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "aniDaySequel"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.10.3",
+    "mocha": "^9.1.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "discord.js": "^13.2.0",
+    "discordx": "^6.1.2",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.1.13"
+  }
+}

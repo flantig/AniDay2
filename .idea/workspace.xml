@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d62cd13-5308-4043-8857-210e48ef38fb" name="Changes" comment="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability">
+      <change beforePath="$PROJECT_DIR$/build/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/commands/guildJoin.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/commands/guildJoin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/commands/guildJoin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/commands/guildJoin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/guildJoin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/guildJoin.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1zIBFbfkrmBEH7DZU0L5rxlcNu4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="C:\Users\Home\WebstormProjects\AniDay2\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d62cd13-5308-4043-8857-210e48ef38fb" name="Changes" comment="" />
+      <created>1633825618747</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633825618747</updated>
+      <workItem from="1633825619974" duration="76000" />
+      <workItem from="1633825932666" duration="932000" />
+      <workItem from="1633827831039" duration="1139000" />
+      <workItem from="1633833078140" duration="3227000" />
+      <workItem from="1634003100571" duration="6696000" />
+      <workItem from="1634024566127" duration="1829000" />
+      <workItem from="1634045061420" duration="4666000" />
+      <workItem from="1634844652084" duration="1706000" />
+      <workItem from="1635259915260" duration="1692000" />
+      <workItem from="1635278530194" duration="6000" />
+      <workItem from="1635280778033" duration="603000" />
+      <workItem from="1636641006636" duration="4023000" />
+      <workItem from="1642025150174" duration="3402000" />
+      <workItem from="1642032290587" duration="1323000" />
+    </task>
+    <task id="LOCAL-00001" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashCommands: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
+      <created>1633827609001</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633827609001</updated>
+    </task>
+    <task id="LOCAL-00002" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashCommands: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
+      <created>1633833539911</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633833539911</updated>
+    </task>
+    <task id="LOCAL-00003" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashCommands: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
+      <created>1633833963816</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633833963816</updated>
+    </task>
+    <task id="LOCAL-00004" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashDaily: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  -slashAuto: Uses slash options to allow for prefixes to toggle the auto command on/off&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
+      <created>1634006746525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634006746525</updated>
+    </task>
+    <task id="LOCAL-00005" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashDaily: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  -slashAuto: Uses slash options to allow for prefixes to toggle the auto command on/off&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
+      <created>1634025647912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634025647912</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.">
+      <created>1642028527683</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642028527683</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability">
+      <created>1642032780854</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642032780854</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashCommands: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened" />
+    <MESSAGE value="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashDaily: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  -slashAuto: Uses slash options to allow for prefixes to toggle the auto command on/off&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened" />
+    <MESSAGE value="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo." />
+    <MESSAGE value="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
