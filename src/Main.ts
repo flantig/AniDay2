@@ -1,32 +1,11 @@
 import {DateTime} from "luxon";
-var cron = require('node-cron');
+const cron = require('node-cron');
 const { discordToken } = require('../config.json');
 import "reflect-metadata";
-import {Intents, Interaction, Message, TextChannel} from "discord.js";
-import { Client } from "discordx";
+import {Message, TextChannel} from "discord.js";
 import EmbeddedDaily from "./helpers/daily";
-import {slashDaily} from "./commands/slashDaily";
-import path = require("path");
+import {client, initialize} from "./helpers/clientSettings";
 const monfun = require("./helpers/mongo.ts");
-
-class daily extends slashDaily{}
-
-const client = new Client({
-    prefix: "!",
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-        Intents.FLAGS.GUILD_VOICE_STATES,
-    ],
-    classes: [
-        path.join(__dirname, "commands", "**/*.{ts,js}"),
-        //`${__dirname}\\commands\\*.{js,ts}`,
-    ],
-    botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
-    silent: true,
-});
-
 
 async function guildDailyRunner() {
     let day = DateTime.local();
@@ -49,12 +28,7 @@ async function guildDailyRunner() {
 
 client.once('ready', async () => {
 
-    await client.initApplicationCommands({
-        guild: { log: true },
-        global: { log: true },
-    });
-    await client.initApplicationPermissions();
-    console.log(`${__dirname}`)
+    await initialize()
 
     cron.schedule('00 01 * * *', async function () {
         await guildDailyRunner();

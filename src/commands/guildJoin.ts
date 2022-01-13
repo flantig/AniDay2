@@ -1,4 +1,6 @@
 import {ArgsOf, Client, Discord, On} from "discordx";
+import {initialize} from "../helpers/clientSettings";
+
 const monfun = require("../helpers/mongo");
 
 @Discord()
@@ -13,12 +15,7 @@ export class BotGuildUpdater{
      */
     @On("guildCreate")
     private async botJoins([guild]: ArgsOf<"guildCreate">, client: Client): Promise<void> {
-        await client.initApplicationCommands({
-            guild: { log: true },
-            global: { log: true },
-        });
-        await client.initApplicationPermissions();
-        console.log(`${__dirname}`)
+        await initialize()
     }
 
     /**
