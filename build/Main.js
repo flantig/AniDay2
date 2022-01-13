@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -58,16 +43,9 @@ require("reflect-metadata");
 var discord_js_1 = require("discord.js");
 var discordx_1 = require("discordx");
 var daily_1 = require("./helpers/daily");
-var slashDaily_1 = require("./commands/slashDaily");
 var path = require("path");
+var setup_1 = require("./helpers/setup");
 var monfun = require("./helpers/mongo.ts");
-var daily = /** @class */ (function (_super) {
-    __extends(daily, _super);
-    function daily() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return daily;
-}(slashDaily_1.slashDaily));
 var client = new discordx_1.Client({
     prefix: "!",
     intents: [
@@ -78,7 +56,6 @@ var client = new discordx_1.Client({
     ],
     classes: [
         path.join(__dirname, "commands", "**/*.{ts,js}"),
-        //`${__dirname}\\commands\\*.{js,ts}`,
     ],
     botGuilds: [function (client) { return client.guilds.cache.map(function (guild) { return guild.id; }); }],
     silent: true,
@@ -132,14 +109,8 @@ function guildDailyRunner() {
 client.once('ready', function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, client.initApplicationCommands({
-                    guild: { log: true },
-                    global: { log: true },
-                })];
+            case 0: return [4 /*yield*/, (0, setup_1.initializer)(client)];
             case 1:
-                _a.sent();
-                return [4 /*yield*/, client.initApplicationPermissions()];
-            case 2:
                 _a.sent();
                 console.log("" + __dirname);
                 cron.schedule('00 01 * * *', function () {

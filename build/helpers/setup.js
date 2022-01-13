@@ -1,10 +1,4 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -42,63 +36,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BotGuildUpdater = void 0;
-var discordx_1 = require("discordx");
-var setup_1 = require("../helpers/setup");
-var monfun = require("../helpers/mongo");
-var BotGuildUpdater = /** @class */ (function () {
-    function BotGuildUpdater() {
-    }
-    /**
-     * Automatically refreshes the commands for immediate use upon joining a new guild/server.
-     *
-     * @param guild
-     * @param client
-     * @private
-     */
-    BotGuildUpdater.prototype.botJoins = function (_a, client) {
-        var guild = _a[0];
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0: return [4 /*yield*/, (0, setup_1.initializer)(client)];
-                    case 1:
-                        _b.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /**
-     * Deletes any set auto timer for the discord bot.
-     *
-     * @param guild
-     * @param client
-     * @private
-     */
-    BotGuildUpdater.prototype.botLeaves = function (_a, client) {
-        var guild = _a[0];
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0: return [4 /*yield*/, monfun.removeMongoEntry(guild.id)];
-                    case 1:
-                        _b.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    __decorate([
-        (0, discordx_1.On)("guildCreate")
-    ], BotGuildUpdater.prototype, "botJoins", null);
-    __decorate([
-        (0, discordx_1.On)("guildDelete")
-    ], BotGuildUpdater.prototype, "botLeaves", null);
-    BotGuildUpdater = __decorate([
-        (0, discordx_1.Discord)()
-    ], BotGuildUpdater);
-    return BotGuildUpdater;
-}());
-exports.BotGuildUpdater = BotGuildUpdater;
-//# sourceMappingURL=guildJoin.js.map
+exports.initializer = void 0;
+var initializer = function (client) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, client.initApplicationCommands({
+                    guild: { log: true },
+                    global: { log: true },
+                })];
+            case 1:
+                _a.sent();
+                return [4 /*yield*/, client.initApplicationPermissions()];
+            case 2:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.initializer = initializer;
+//# sourceMappingURL=setup.js.map

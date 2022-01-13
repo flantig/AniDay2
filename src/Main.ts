@@ -5,11 +5,9 @@ import "reflect-metadata";
 import {Intents, Interaction, Message, TextChannel} from "discord.js";
 import { Client } from "discordx";
 import EmbeddedDaily from "./helpers/daily";
-import {slashDaily} from "./commands/slashDaily";
 import path = require("path");
+import {initializer} from "./helpers/setup";
 const monfun = require("./helpers/mongo.ts");
-
-class daily extends slashDaily{}
 
 const client = new Client({
     prefix: "!",
@@ -21,7 +19,6 @@ const client = new Client({
     ],
     classes: [
         path.join(__dirname, "commands", "**/*.{ts,js}"),
-        //`${__dirname}\\commands\\*.{js,ts}`,
     ],
     botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
     silent: true,
@@ -48,13 +45,9 @@ async function guildDailyRunner() {
 }
 
 client.once('ready', async () => {
+    await initializer(client);
 
-    await client.initApplicationCommands({
-        guild: { log: true },
-        global: { log: true },
-    });
-    await client.initApplicationPermissions();
-    console.log(`${__dirname}`)
+    console.log(`${__dirname}`);
 
     cron.schedule('00 01 * * *', async function () {
         await guildDailyRunner();

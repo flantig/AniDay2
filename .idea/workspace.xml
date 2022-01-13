@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d62cd13-5308-4043-8857-210e48ef38fb" name="Changes" comment="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability">
+      <change afterPath="$PROJECT_DIR$/build/helpers/setup.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/setup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/setup.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/setup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/commands/guildJoin.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/commands/guildJoin.js" afterDir="false" />
