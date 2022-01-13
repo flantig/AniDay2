@@ -1,0 +1,16 @@
+{
+  "userAgent": "AnimeCalendar Parser v0.1 by SnapplePacket",
+  "clientId": "Q8GnpvmJJ2oBcQ",
+  "clientSecret": "A7ySZ-Bgf4h5Gc8PfC4X2GLIpjU",
+  "refreshToken": "21704562-RBDFocDlLhZBDVQ8eshtEjpdyWI",
+  "username": "SnapplePacket",
+  "password": "fl11421",
+  "discordToken": "Mjg0NTM1NDIxODY0NjQwNTE1.WK-wQg.RID7SrAwDmgpJANtx7OKpvirfE8",
+  "prefix": ">",
+  "Number of School Busses": 10,
+  "banana": {
+    "peel": 4,
+    "seeds": 10
+  },
+  "chocolate": [1, 12, 331, 312313]
+}
