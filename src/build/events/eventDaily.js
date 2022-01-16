@@ -21,18 +21,16 @@ let eventDaily = class eventDaily {
         this.expandedState = 0;
     }
     async fireMessage([client]) {
-        const guildID = "395682517878964237";
-        const channelID = "438097287210860556";
         let day = luxon_1.DateTime.local();
         const today = new daily_1.default(day, await classMongo_1.default.getImageSet(day.toLocaleString({
             month: 'short',
             day: '2-digit'
         })));
         let dailyGuildArray = await classMongo_1.default.dailyMongoSender();
-        node_schedule_1.default.scheduleJob('01 00 * * *', async (fireDate) => {
+        node_schedule_1.default.scheduleJob('00 01 * * *', async (fireDate) => {
             for (const element of dailyGuildArray) {
-                const guild = await client.guilds.fetch(guildID);
-                const channel = await guild.channels.cache.get(channelID);
+                const guild = await client.guilds.fetch(element.guildID);
+                const channel = await guild.channels.cache.get(element.channelID);
                 this.shortFull = await today.returnEveryDay();
                 const short = new discord_js_1.MessageActionRow().addComponents((0, classButtons_1.moreBtn)("auto").button, (this.counter != 0) ? (0, classButtons_1.backBtn)("auto").button : (0, classButtons_1.begBtn)("auto").button, (this.counter < this.shortFull.short.length - 1) ? (0, classButtons_1.nextBtn)("auto").button : (0, classButtons_1.endBtn)("auto").button);
                 if (!guild)

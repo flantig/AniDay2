@@ -24,19 +24,17 @@ export class eventDaily {
 
     @On("ready")
     async fireMessage([client]: ArgsOf<"ready">) {
-        const guildID = "395682517878964237"
-        const channelID = "438097287210860556"
         let day = DateTime.local();
         const today = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
             month: 'short',
             day: '2-digit'
         })));
         let dailyGuildArray = await monfun.dailyMongoSender();
-        schedule.scheduleJob('01 00 * * *', async fireDate => {
+        schedule.scheduleJob('00 01 * * *', async fireDate => {
 
             for (const element of dailyGuildArray) {
-                const guild = await client.guilds.fetch(guildID);
-                const channel = await guild.channels.cache.get(channelID) as TextChannel;
+                const guild = await client.guilds.fetch(element.guildID);
+                const channel = await guild.channels.cache.get(element.channelID) as TextChannel;
 
                 this.shortFull = await today.returnEveryDay();
 
