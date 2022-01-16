@@ -1,6 +1,6 @@
 import {ArgsOf, Client, Discord, On} from "discordx";
 import {initializer} from "../helpers/setup";
-const monfun = require("../helpers/mongo");
+import monfun from "../helpers/classMongo"
 
 @Discord()
 export class BotGuildUpdater{

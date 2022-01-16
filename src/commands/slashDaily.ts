@@ -15,15 +15,14 @@ import {
 } from "discord.js";
 import {DateTime} from "luxon";
 import EmbeddedDaily from "../helpers/daily";
-
-const buttons = require("../helpers/buttons");
-const monfun = require("../helpers/mongo");
+import {backBtn, begBtn, endBtn, lessBtn, moreBtn, nextBtn} from "../helpers/classButtons";
+import monfun from "../helpers/classMongo";
 
 function buttonState(interaction: ButtonInteraction) {
     (this.expandedState === 0) ?
-        buttons.nextBtn.interaction(interaction, this.short, new MessageActionRow().addComponents(buttons.moreBtn.button, (this.counter != 0) ? buttons.backBtn.button : buttons.begBtn.button, (this.counter < this.shortFull.short.length - 1) ? buttons.nextBtn.button : buttons.endBtn.button))
+        nextBtn("manual").interaction(interaction, this.short, new MessageActionRow().addComponents(moreBtn("manual").button, (this.counter != 0) ? backBtn("manual").button : begBtn("manual").button, (this.counter < this.shortFull.short.length - 1) ? nextBtn("manual").button : endBtn("manual").button))
         :
-        buttons.nextBtn.interaction(interaction, this.full, new MessageActionRow().addComponents(buttons.lessBtn.button, (this.counter != 0) ? buttons.backBtn.button : buttons.begBtn.button, (this.counter < this.shortFull.short.length - 1) ? buttons.nextBtn.button : buttons.endBtn.button));
+        nextBtn("manual").interaction(interaction, this.full, new MessageActionRow().addComponents(lessBtn("manual").button, (this.counter != 0) ? backBtn("manual").button : begBtn("manual").button, (this.counter < this.shortFull.short.length - 1) ? nextBtn("manual").button : endBtn("manual").button));
 }
 
 @Discord()
@@ -46,8 +45,7 @@ export class slashDaily {
 
 
         this.shortFull = await today.returnEveryDay();
-        // () =>{if(this.counter != 0)return buttons.backBtn.button}, () =>{if(this.counter != this.shortFull.short.length)return buttons.nextBtn.button}
-        const short = new MessageActionRow().addComponents(buttons.moreBtn.button, (this.counter != 0)? buttons.backBtn.button: buttons.begBtn.button, (this.counter < this.shortFull.short.length -1)? buttons.nextBtn.button:buttons.endBtn.button);
+        const short = new MessageActionRow().addComponents(moreBtn("manual").button, (this.counter != 0) ? backBtn("manual").button : begBtn("manual").button, (this.counter < this.shortFull.short.length - 1) ? nextBtn("manual").button : endBtn("manual").button);
 
 
         if (this.shortFull) {
@@ -66,23 +64,22 @@ export class slashDaily {
     }
 
 
-
     // register a handler for the button with ID: "hello-btn"
-    @ButtonComponent("more-btn")
+    @ButtonComponent("more-btn-manual")
     morebtn(interaction: ButtonInteraction) {
         this.expandedState = 1;
-        buttons.moreBtn.interaction(interaction, this.full, new MessageActionRow().addComponents(buttons.lessBtn.button, (this.counter != 0)? buttons.backBtn.button: buttons.begBtn.button, (this.counter < this.shortFull.short.length -1)? buttons.nextBtn.button:buttons.endBtn.button));
+        moreBtn("manual").interaction(interaction, this.full, new MessageActionRow().addComponents(lessBtn("manual").button, (this.counter != 0) ? backBtn("manual").button : begBtn("manual").button, (this.counter < this.shortFull.short.length - 1) ? nextBtn("manual").button : endBtn("manual").button));
     }
 
-    @ButtonComponent("less-btn")
+    @ButtonComponent("less-btn-manual")
     lessbtn(interaction: ButtonInteraction) {
         this.expandedState = 0;
-        buttons.moreBtn.interaction(interaction, this.short, new MessageActionRow().addComponents(buttons.moreBtn.button, (this.counter != 0)? buttons.backBtn.button: buttons.begBtn.button, (this.counter < this.shortFull.short.length -1)? buttons.nextBtn.button:buttons.endBtn.button));
+        moreBtn("manual").interaction(interaction, this.short, new MessageActionRow().addComponents(moreBtn("manual").button, (this.counter != 0) ? backBtn("manual").button : begBtn("manual").button, (this.counter < this.shortFull.short.length - 1) ? nextBtn("manual").button : endBtn("manual").button));
     }
 
-    @ButtonComponent("nxt-btn")
+    @ButtonComponent("nxt-btn-manual")
     nextbtn(interaction: ButtonInteraction) {
-        if(this.counter < this.short.length) {
+        if (this.counter < this.short.length) {
             this.counter++;
             this.short = [this.shortFull.short[this.counter]];
             this.full = [this.shortFull.full[this.counter]];
@@ -91,9 +88,9 @@ export class slashDaily {
         }
     }
 
-    @ButtonComponent("bck-btn")
+    @ButtonComponent("bck-btn-manual")
     backbtn(interaction: ButtonInteraction) {
-        if(this.counter > 0) {
+        if (this.counter > 0) {
             this.counter--;
             this.short = [this.shortFull.short[this.counter]];
             this.full = [this.shortFull.full[this.counter]];
@@ -102,14 +99,14 @@ export class slashDaily {
         }
     }
 
-    @ButtonComponent("beg-btn")
-    begbtn(interaction: ButtonInteraction){
-        buttons.begBtn.interaction(interaction);
+    @ButtonComponent("beg-btn-manual")
+    begbtn(interaction: ButtonInteraction) {
+        begBtn("manual").interaction(interaction);
     }
 
-    @ButtonComponent("end-btn")
-    endbtn(interaction: ButtonInteraction){
-        buttons.endBtn.interaction(interaction);
+    @ButtonComponent("end-btn-manual")
+    endbtn(interaction: ButtonInteraction) {
+        endBtn("manual").interaction(interaction);
     }
 
 

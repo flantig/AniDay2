@@ -5,17 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d62cd13-5308-4043-8857-210e48ef38fb" name="Changes" comment="Added code to auto initialize commands without needing a quick start, shoutouts to Victorique on discord.&#10;&#10;Added code to auto clean up guilds after the bot leaves a discord on Mongo.&#10;&#10;Created clientSettings file for actual reusability">
-      <change afterPath="$PROJECT_DIR$/build/helpers/setup.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/helpers/setup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/helpers/setup.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/setup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/events/eventDaily.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/events/eventDaily.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/events/eventDaily.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classButtons.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classButtons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classButtons.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classMongo.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classMongo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/classMongo.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyHandler.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyHandler.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyTest.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyTest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/helpers/dailyTest.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/Main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/Main.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/guildJoin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/guildJoin.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/simpleCommands.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/simpleCommands.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/slashAuto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/slashAuto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/slashDaily.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/commands/slashDaily.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/events/eventDaily.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/events/eventDaily.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/buttons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/buttons.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/classButtons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/classButtons.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/classMongo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/classMongo.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/daily.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/daily.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/dailyTest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/dailyTest.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/mongo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/mongo.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/setup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/helpers/setup.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/models/allDayEmbeddeds.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/models/allDayEmbeddeds.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/models/aniDayHybrid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/build/models/aniDayHybrid.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/events/eventDaily.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/classButtons.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/Main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/commands/guildJoin.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/commands/guildJoin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/commands/guildJoin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/commands/guildJoin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/helpers/buttons.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/helpers/buttons.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/helpers/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/helpers/buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/helpers/buttons.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/helpers/buttons.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/guildJoin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/guildJoin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/slashAuto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/slashAuto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/slashDaily.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/slashDaily.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/buttons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/buttons.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/mongo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/classMongo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +102,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/helpers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -59,6 +113,11 @@
     <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
     <property name="ts.external.directory.path" value="C:\Users\Home\WebstormProjects\AniDay2\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Home\WebstormProjects\AniDay2\src\helpers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">

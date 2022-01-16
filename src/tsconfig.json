@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "outDir" : "../build",
-    "module": "commonjs",
-    "target": "es5",
+    "module": "CommonJS",
+    "target": "ES2021",
+    "noImplicitAny": false,
     "sourceMap": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "watch": false,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "declaration": true
+    "outDir": "./build",
+    "allowSyntheticDefaultImports": true
   }
 }

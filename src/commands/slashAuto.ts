@@ -1,6 +1,6 @@
 import {Discord, Slash, SlashGroup} from "discordx";
 import {CommandInteraction} from "discord.js";
-const monfun = require("../helpers/mongo");
+import monfun from "../helpers/classMongo"
 
 @Discord()
 @SlashGroup("auto","Set a daily aniday image for any given text channel!")
