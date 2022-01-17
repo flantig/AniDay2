@@ -21,13 +21,13 @@ let eventDaily = class eventDaily {
         this.expandedState = 0;
     }
     async fireMessage([client]) {
-        let day = luxon_1.DateTime.local();
-        const today = new daily_1.default(day, await classMongo_1.default.getImageSet(day.toLocaleString({
-            month: 'short',
-            day: '2-digit'
-        })));
-        let dailyGuildArray = await classMongo_1.default.dailyMongoSender();
         node_schedule_1.default.scheduleJob('00 01 * * *', async (fireDate) => {
+            let day = luxon_1.DateTime.local();
+            const today = new daily_1.default(day, await classMongo_1.default.getImageSet(day.toLocaleString({
+                month: 'short',
+                day: '2-digit'
+            })));
+            let dailyGuildArray = await classMongo_1.default.dailyMongoSender();
             for (const element of dailyGuildArray) {
                 const guild = await client.guilds.fetch(element.guildID);
                 const channel = await guild.channels.cache.get(element.channelID);

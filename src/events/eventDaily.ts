@@ -24,13 +24,14 @@ export class eventDaily {
 
     @On("ready")
     async fireMessage([client]: ArgsOf<"ready">) {
-        let day = DateTime.local();
-        const today = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
-            month: 'short',
-            day: '2-digit'
-        })));
-        let dailyGuildArray = await monfun.dailyMongoSender();
+
         schedule.scheduleJob('00 01 * * *', async fireDate => {
+            let day = DateTime.local();
+            const today = new EmbeddedDaily(day, await monfun.getImageSet(day.toLocaleString({
+                month: 'short',
+                day: '2-digit'
+            })));
+            let dailyGuildArray = await monfun.dailyMongoSender();
 
             for (const element of dailyGuildArray) {
                 const guild = await client.guilds.fetch(element.guildID);

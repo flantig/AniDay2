@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7d62cd13-5308-4043-8857-210e48ef38fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/events/eventDaily.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/events/eventDaily.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/build/events/eventDaily.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/build/events/eventDaily.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/eventDaily.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/eventDaily.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +98,8 @@
       <workItem from="1636641006636" duration="4023000" />
       <workItem from="1642025150174" duration="3402000" />
       <workItem from="1642032290587" duration="1323000" />
+      <workItem from="1642309896713" duration="263000" />
+      <workItem from="1642436353642" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="A complete rework of AniDay in typescript&#10;&#10;Helpers:&#10;  -buttons: organizes all of the inter-actable button elements into a seperate file&#10;  -daily: responsible for formatting embeds, picking out random anime from a day for the auto poster, and returns every anime for the daily command&#10;  -mongo: everything mongo is here, functions for fetching days, updating them, etc. are all here&#10;  &#10;Commands:  &#10;  -slashCommands: All of the slash commands live here, they pull a lot of functions from the helpers and in a way kinda acts like an android app. The helpers can be seen like fragments and slashCommands is the activity they live on.&#10;  &#10;Models:&#10;  -Contains the mongodb model and the shortFull model for when a daily command is expanded or shortened">
       <created>1633827609001</created>
@@ -152,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642293778635</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="A temporary adjust to the bot so that the daily auto message can be interactable.&#10;&#10;Things to do:&#10;- Make a generic day handler. You struggled to do this in this commit, so you made the horrifying mistake of duping code as if you've never touched a keyboard before.&#10;- Add the yesterday feature, you need to adjust how the function getInteraction() works by allowing any day entered. This would also be future proofing for when users want to access any day">
+      <created>1642309983247</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1642309983247</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
